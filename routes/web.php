@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
-// Criação das rotas, que criam o caminho e retornam a view
+// Rota home que utiliza a função do controller
+Route::get('/', [EventController::class, 'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rota para criar eventos que utiliza a função do controller
+Route::get('/events/create', [EventController::class, 'create']);
