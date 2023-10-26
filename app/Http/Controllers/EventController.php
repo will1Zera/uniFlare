@@ -30,6 +30,23 @@ class EventController extends Controller{
         $event->private = $request->private;
         $event->description = $request->description;
 
+        // Validação da imagem
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+
+            // Pegando a extensão da imagem
+            $extension = $requestImage->extension();
+
+            // Gerando uma hash única para imagem
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now") . "." . $extension);
+
+            // Salva a imagem no diretório public do projeto
+            $requestImage->move(public_path('img/events'), $imageName);
+
+            // Preenche a imagem no objeto
+            $event->image = $imageName;
+        }
+
         // Salva o objeto no banco de dados
         $event->save();
 
