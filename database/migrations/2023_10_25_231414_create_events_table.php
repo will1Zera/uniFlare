@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean("private");
             $table->string('image')->default('default_image.jpg');
             $table->json('items');
+            $table->dateTime('date');
         });
     }
 
