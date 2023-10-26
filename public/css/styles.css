@@ -159,6 +159,45 @@ header{
     margin: 10px 0px;
 }
 
+/* EVENT PAGE */
+
+#image-container,
+#info-container{
+    margin-top: 30px;
+}
+
+#image-container img{
+    border-radius: 10px;
+}
+
+#info-container h1{
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+#info-container p{
+    font-size: 15px;
+}
+
+#info-container h3,
+#description-container h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#info-container ion-icon{
+    font-size: 20px;
+    color: #0f47be;
+    margin-right: 5px;
+}
+
+#description-container p{
+    max-width: 500px;
+    margin-bottom: 50px;
+}
+
 /* FOOTER */
 
 footer{
