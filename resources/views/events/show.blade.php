@@ -18,6 +18,12 @@
             <p class="events-participants"><ion-icon name="people"></ion-icon> -- participantes</p>
             <p class="event-owner"><ion-icon name="star"></ion-icon> fulano deltrano</p>
             <a href="#" class="btn btn-primary" id="event-submit">Confirmar presença</a>
+            <h3>O evento conta com:</h3>
+            <ul id="items-list">
+                @foreach($event->items as $item)
+                    <li><span><ion-icon name="checkmark"></ion-icon> {{ $item }}</span></li>
+                @endforeach
+            </ul>
         </div>
         <div class="col-md-12" id="description-container">
             <h3>Descrição do evento:</h3>

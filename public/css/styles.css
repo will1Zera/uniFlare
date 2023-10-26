@@ -178,6 +178,7 @@ header{
 
 #info-container p{
     font-size: 15px;
+    display: flex;
 }
 
 #info-container h3,
@@ -197,6 +198,18 @@ header{
     max-width: 500px;
     margin-bottom: 50px;
 }
+
+/* EVENT ITEMS */
+
+#items-list{
+    padding-left: 0;
+}
+
+#items-list li{
+    display: flex;
+}
+
+
 
 /* FOOTER */
 

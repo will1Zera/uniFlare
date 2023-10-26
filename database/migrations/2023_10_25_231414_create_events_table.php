@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("city");
             $table->boolean("private");
             $table->string('image')->default('default_image.jpg');
+            $table->json('items');
         });
     }
 
