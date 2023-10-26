@@ -63,6 +63,18 @@ header{
     color: #50b2ff;
 }
 
+/* MESSAGE */
+
+.msg{
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
 /* SEARCH */
 
 #search-container{
@@ -128,6 +140,23 @@ header{
 .card .card-participants{
     font-size: 14px;
     color: #757575;
+}
+
+/* CREATE EVENT */
+
+#event-create-container{
+    padding: 30px;
+}
+
+#event-create-container label{
+    font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea{
+    font-size: 15px;
+    margin: 10px 0px;
 }
 
 /* FOOTER */

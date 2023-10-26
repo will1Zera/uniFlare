@@ -42,8 +42,19 @@
             </nav>
         </header>
 
-        <!-- Tag que substitui pelos conteúdos das páginas -->
-        @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Verificação da flash message -->
+                    @if(session('msg'))
+                        <p class="msg">{{ session('msg') }}</p>
+                    @endif
+
+                    <!-- Tag que substitui pelos conteúdos das páginas -->
+                    @yield('content')
+                </div>
+            </div>
+        </main>
         <footer>
             <p>UniFlare &copy; 2023</p>
         </footer>
