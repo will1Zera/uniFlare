@@ -9,11 +9,20 @@ class EventController extends Controller{
 
     // Action da home do sistema
     public function index(){
-        // Resgata todos os dados do banco de dados através da Model
-        $events = Event::all();
+        // Resgata a pesquisa do input
+        $search = request('search');
 
-        // Manda esses eventos para a view
-        return view('welcome', ['events' => $events]);
+        // Verifica se há algo pesquisado
+        if($search){
+            // Resgata os dados referente há pesquisa realizada
+            $events = Event::where([['title', 'like', '%' .$search. '%']])->get();
+        } else{
+            // Resgata todos os dados do banco de dados através da Model
+            $events = Event::all();
+        }
+
+        // Manda esses eventos e pesquisa para a view
+        return view('welcome', ['events' => $events, 'search' => $search]);
     }
 
     // Action para formulário de criar evento do sistema
