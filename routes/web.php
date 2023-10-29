@@ -19,3 +19,6 @@ Route::post('/events', [EventController::class, 'store']);
 // Rota para exibir todos os eventos cadastrados do usuário
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
+// Rota deletar um evento
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
+
