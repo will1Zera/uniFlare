@@ -14,3 +14,13 @@ Route::get('/events/{id}', [EventController::class, 'show']);
 
 // Rota para criar eventos que utiliza a função do controller
 Route::post('/events', [EventController::class, 'store']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
