@@ -16,12 +16,6 @@ Route::get('/events/{id}', [EventController::class, 'show']);
 // Rota para criar eventos que utiliza a função do controller
 Route::post('/events', [EventController::class, 'store']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Rota para exibir todos os eventos cadastrados do usuário
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+
