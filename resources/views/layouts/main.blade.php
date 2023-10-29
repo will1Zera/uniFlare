@@ -28,12 +28,12 @@
                         <li class="nav-item">
                             <a href="/" class="nav-link">Eventos</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/events/create" class="nav-link">Criar eventos</a>
-                        </li>
 
                         <!-- Mostra somente para aqueles logados no sistema -->
                         @auth
+                            <li class="nav-item">
+                                <a href="/events/create" class="nav-link">Criar eventos</a>
+                            </li>
                             <li class="nav-item">
                                 <a href="/dashboard" class="nav-link">Meus eventos</a>
                             </li>

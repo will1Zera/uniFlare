@@ -58,6 +58,10 @@ class EventController extends Controller{
             $event->image = $imageName;
         }
 
+        // Resgata o id do usuário e associa ao user_id de eventos
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
         // Salva o objeto no banco de dados
         $event->save();
 

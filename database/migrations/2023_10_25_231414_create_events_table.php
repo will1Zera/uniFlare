@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('image')->default('default_image.jpg');
             $table->json('items');
             $table->dateTime('date');
+            $table->foreignId('user_id')->constrained();
         });
     }
 
