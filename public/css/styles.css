@@ -224,6 +224,17 @@ header{
     display: inline-block;
 }
 
+/* EDIT */
+
+.img-preview{
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    border-radius: 100%;
+    border: 3px solid #353e48;
+}
+
+
 /* FOOTER */
 
 footer{

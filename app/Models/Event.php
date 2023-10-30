@@ -17,6 +17,9 @@ class Event extends Model
     // Especifica o tipo de dates como um date
     protected $dates = ['date'];
 
+    // Retira restrições sobre atualizar coisas do POST
+    protected $guarded = [];
+
     // Associa um usuário aos eventos (pertence a um)
     public function user(){
         return $this->belongsTo('App\Models\User');

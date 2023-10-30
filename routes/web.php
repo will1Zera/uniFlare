@@ -20,5 +20,11 @@ Route::post('/events', [EventController::class, 'store']);
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
 // Rota deletar um evento
-Route::delete('/events/{id}', [EventController::class, 'destroy']);
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('auth');
+
+// Rota preencher com dados de um evento
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
+
+// Rota atualiza um evento
+Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth');
 
