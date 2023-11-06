@@ -28,3 +28,6 @@ Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('a
 // Rota atualiza um evento
 Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth');
 
+// Rota para participar de um evento
+Route::post('/events/join/{id}', [EventController::class, 'joinEvent'])->middleware('auth');
+
