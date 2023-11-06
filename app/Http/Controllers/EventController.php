@@ -88,7 +88,10 @@ class EventController extends Controller{
         // Pega todos os eventos desse usuário
         $events = $user->events;
 
-        return view('events.dashboard', ['events' => $events]);
+        // Pega todos os eventos que o usuário participa
+        $eventsAsParticipant = $user->eventsAsParticipant;
+
+        return view('events.dashboard', ['events' => $events, 'eventsasparticipant' => $eventsAsParticipant]);
     }
 
     // Action para deletar um evento
@@ -100,7 +103,12 @@ class EventController extends Controller{
 
     // Action para resgatar dados de update
     public function edit($id){
+        $user = auth()->user();
         $event = Event::findOrFail($id);
+
+        if($user->id != $event->user_id){
+            return redirect('/');
+        }
 
         return view('events.edit', ['event' => $event]);
     }
