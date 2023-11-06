@@ -72,12 +72,25 @@ class EventController extends Controller{
 
     // Action para exibir mais informações do evento
     public function show($id){
+        $user = auth()->user();
         $event = Event::findOrFail($id);
+
+        $hasUserJoined = false;
+
+        if($user){
+            $userEvents = $user->eventsAsParticipant->toArray();
+
+            foreach($userEvents as $userEvent){
+                if($userEvent['id'] == $id){
+                    $hasUserJoined = true;
+                }
+            }
+        }
 
         // Procura o usuário dono do evento
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
-        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined]);
     }
 
     // Action para exibir e fazer ações na dashboard
@@ -144,5 +157,16 @@ class EventController extends Controller{
         $event = Event::findOrFail($id);
 
         return redirect('/')->with('msg', 'Sua presença está confirmada no evento ' . $event->title);
+    }
+
+    // Action para cancelar participação
+    public function leaveEvent($id){
+        $user = auth()->user();
+
+        $user->eventsAsParticipant()->detach($id);
+
+        $event = Event::findOrFail($id);
+
+        return redirect('/dashboard')->with('msg', 'Sua presença no evento ' . $event->title . ' foi cancelada');
     }
 }

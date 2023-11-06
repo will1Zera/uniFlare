@@ -31,3 +31,6 @@ Route::put('/events/update/{id}', [EventController::class, 'update'])->middlewar
 // Rota para participar de um evento
 Route::post('/events/join/{id}', [EventController::class, 'joinEvent'])->middleware('auth');
 
+// Rota para cancelar participação
+Route::delete('/events/leave/{id}', [EventController::class, 'leaveEvent'])->middleware('auth');
+
